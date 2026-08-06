@@ -27,7 +27,7 @@ An AI-powered SaaS web application that generates professional, ATS-friendly cov
 
 ### Home Page
 
-screenshots/home.png
+/screenshots/home.png
 
 ### Generated Cover Letter
 screenshots/output.png
