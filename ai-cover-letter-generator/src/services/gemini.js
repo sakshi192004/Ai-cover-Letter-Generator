@@ -5,31 +5,24 @@ const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 const API_URL =
   `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${API_KEY}`;
-export const generateCoverLetterAI = async (formData) => {
+export const generateCoverLetterAI = async (formData, resumeText) => {
  const prompt = `
-You are an expert HR professional.
+Write a professional ATS-friendly cover letter.
 
-Generate a professional ATS-friendly cover letter.
+Candidate Name: ${formData.name}
+Job Role: ${formData.role}
+Target Company: ${formData.company}
+Skills: ${formData.skills}
 
-Candidate Details:
-- Name: ${formData.name}
-- Job Role: ${formData.role}
-- Company: ${formData.company}
-- Skills: ${formData.skills}
+Resume:
+${resumeText}
 
-Rules:
-- Return ONLY the cover letter.
-- Do NOT use Markdown.
-- Do NOT use **, #, ---, or bullet points.
-- Do NOT include tips, explanations, notes, or customization suggestions.
-- Do NOT add placeholders like [Your City] or [Email].
-- Start directly with:
-  Dear Hiring Manager,
-- End with:
-  Sincerely,
-  ${formData.name}
+Instructions:
+- Use the resume information wherever possible.
+- Highlight relevant skills and projects.
+- Do not use placeholders like [Your Name].
+- Return only the cover letter.
 `;
-
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import InputField from "./InputField";
 import CoverLetter from "./CoverLetter";
+import ResumeUpload from "./ResumeUpload";
+import { extractResumeText } from "../utils/extractResumeText";
 import { generateTemplate } from "../utils/templateGenerator";
 import { generateCoverLetterAI } from "../services/gemini";
 import {
@@ -31,15 +33,41 @@ const Form = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+const [resumeFile, setResumeFile] = useState(null);
+
+const handleFileChange = (e) => {
+  const file = e.target.files[0];
+
+  if (!file) return;
+
+  console.log("Selected File:", file);
+
+  setResumeFile(file);
+};
+
+
+
+const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
     setLoading(true);
 
-    const result = await generateCoverLetterAI(formData);
+    // Resume Text Extract
+    let resumeText = "";
+
+    if (resumeFile) {
+      resumeText = await extractResumeText(resumeFile);
+
+      console.log("Resume Text:");
+      console.log(resumeText);
+    }
+
+    // AI Call
+    const result = await generateCoverLetterAI(formData, resumeText);
 
     setCoverLetter(result);
+
   } catch (error) {
     console.error(error);
     alert("Something went wrong!");
@@ -124,6 +152,12 @@ const Form = () => {
         className="w-full rounded-2xl border-2 border-slate-200 bg-slate-50 px-6 py-5 text-base outline-none transition-all duration-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 resize-none text-center text-xl"
       />
     </div>
+
+
+<ResumeUpload
+  onFileChange={handleFileChange}
+  file={resumeFile}
+/>
 
     <button
       type="submit"
