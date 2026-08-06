@@ -25,14 +25,15 @@ An AI-powered SaaS web application that generates professional, ATS-friendly cov
 
 ---
 
+## 📸 Screenshots
+
 ### Home Page
 
-![Home](ai-cover-letter-generator/screenshots/home.png)
-
+![Home Page](./screenshots/home.png)
 
 ### Generated Cover Letter
-![Cover Letter](ai-cover-letter-generator/screenshots/output.png)
 
+![Generated Cover Letter](./screenshots/output.png)
 ---
 
 ## 🛠 Tech Stack
