@@ -27,11 +27,11 @@ An AI-powered SaaS web application that generates professional, ATS-friendly cov
 
 ### Home Page
 
-screenshots/home.png
+![Home](screenshot/dashboard.png)
+
 
 ### Generated Cover Letter
-screenshots/output.png
-
+![Cover Letter](screenshot/dashboard.png)
 
 ---
 
