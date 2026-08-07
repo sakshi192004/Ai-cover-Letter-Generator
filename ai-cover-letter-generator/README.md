@@ -25,6 +25,16 @@ An AI-powered SaaS web application that generates professional, ATS-friendly cov
 
 ---
 
+
+🚀 Live website
+
+🔗 Live Website:https://ai-cover-letter-generator-navy.vercel.app/
+
+🔗 Demo Video:
+
+📂 GitHub Repository
+🔗 https://github.com/sakshi192004/Ai-cover-Letter-Generator/tree/main/ai-cover-letter-generator
+
 ## 📸 Screenshots
 
 ### Home Page

@@ -77,21 +77,36 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <section className="w-full max-w-[850px] bg-white rounded-[32px] shadow-2xl p-10">
+    <section
+  className="
+    w-[95%]
+    sm:w-[90%]
+    md:w-[85%]
+    lg:max-w-[850px]
+    bg-white
+    rounded-3xl
+    shadow-2xl
+    p-5
+    sm:p-8
+    md:p-10
+    mx-auto
+    my-6
+  "
+>
 
       {/* Header */}
 
-      <div className="text-center mb-10">
+     <div className="text-center mb-8 sm:mb-10">
 
-        <div className="text-5xl mb-3">
-          🤖
-        </div>
+        <div className="text-4xl sm:text-5xl mb-3">
+  🤖
+</div>
 
-        <h1 className="text-5xl font-extrabold tracking-tight text-slate-900">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
           AI Cover Letter Generator
         </h1>
 
-        <p className="mt-3 text-lg text-slate-500">
+        <p className="mt-3 text-sm sm:text-base md:text-lg text-slate-500 px-2">
           Create professional AI-powered cover letters in seconds.
         </p>
 
@@ -103,11 +118,14 @@ const handleSubmit = async (e) => {
 
       {/* Form */}
 
-      <form onSubmit={handleSubmit}  className="mt-10 flex justify-center">
+      <form
+  onSubmit={handleSubmit}
+  className="mt-8 flex justify-center"
+>
   <div className="w-full max-w-xl mx-auto space-y-6">
 
     {/* Input Fields */}
-<div className="w-full max-w-[700px] px-6">
+<div className="w-full max-w-[700px] px-0 sm:px-4">
     <InputField
       icon={<User size={18} className="text-indigo-600" />}
       label="Candidate Name"
@@ -149,7 +167,25 @@ const handleSubmit = async (e) => {
         onChange={handleChange}
         rows={5}
         placeholder="React, Node.js, Express.js, MongoDB..."
-        className="w-full rounded-2xl border-2 border-slate-200 bg-slate-50 px-6 py-5 text-base outline-none transition-all duration-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 resize-none text-center text-xl"
+        className="
+w-full
+rounded-2xl
+border-2
+border-slate-200
+bg-slate-50
+px-5
+py-4
+text-base
+sm:text-lg
+outline-none
+transition-all
+duration-300
+focus:border-indigo-500
+focus:ring-4
+focus:ring-indigo-100
+resize-none
+text-left
+"
       />
     </div>
 
@@ -162,7 +198,22 @@ const handleSubmit = async (e) => {
     <button
       type="submit"
       disabled={loading}
-      className="w-full h-10 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-8 rounded-2xl font-semibold text-lg hover:scale-[1.02] transition-all duration-300 "
+      className="
+w-full
+bg-gradient-to-r
+from-indigo-600
+to-purple-600
+text-white
+py-4
+sm:py-5
+rounded-2xl
+font-semibold
+text-base
+sm:text-lg
+hover:scale-[1.02]
+transition-all
+duration-300
+"
     >
       {loading ? "Generating..." : "✨ Generate Cover Letter"}
     </button>
